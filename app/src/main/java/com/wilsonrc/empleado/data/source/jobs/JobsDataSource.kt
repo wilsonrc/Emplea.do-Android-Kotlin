@@ -6,7 +6,7 @@ import io.reactivex.Single
 
 interface JobsDataSource {
 
-    fun getJobs() : Observable<List<Job>>
+    fun getJobs() : Observable<ArrayList<Job>>
 
     fun getJob(jobId: String): Single<Job>
 

@@ -8,7 +8,7 @@ interface JobsContract {
 
     interface View : BaseView<Presenter> {
 
-        fun showJobs(jobs: List<Job>)
+        fun showJobs(jobs: ArrayList<Job>)
 
         fun showNoJobs()
 

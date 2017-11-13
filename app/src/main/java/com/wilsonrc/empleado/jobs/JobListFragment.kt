@@ -8,48 +8,55 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 
 import com.wilsonrc.empleado.R
+import com.wilsonrc.empleado.data.source.jobs.JobsRepository
 import com.wilsonrc.empleado.data.source.models.Job
+import com.wilsonrc.empleado.data.source.remote.JobsRemoteDataSource
+import com.wilsonrc.empleado.data.source.remote.JobsService
+import kotlinx.android.synthetic.main.fragment_job_list.*
+
+import kotlinx.android.synthetic.main.fragment_job_list.view.*
 
 class JobListFragment : Fragment() , JobsContract.View {
 
-    lateinit var mRecyclerView : RecyclerView
+    override lateinit var presenter: JobsContract.Presenter
 
+    lateinit var mAdapter : JobsListAdapter
+
+    override fun onResume() {
+        super.onResume()
+        presenter.start()
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+       return inflater.inflate(R.layout.fragment_job_list, container, false)
+    }
 
-        var rootView : View = inflater.inflate(R.layout.fragment_job_list, container, false);
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        mRecyclerView = rootView.findViewById(R.id.rv_jobs)
+        mAdapter = JobsListAdapter()
 
-        val linearLayoutManager  = LinearLayoutManager(context)
+        rv_jobs.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
 
-        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
-
-        mRecyclerView.layoutManager = linearLayoutManager
-
-      //  mRecyclerView.adapter = mAdapter
-
-        presenter.loadJobs()
-
-        return super.onCreateView(inflater, container, savedInstanceState)
+        rv_jobs.adapter = mAdapter
     }
 
     companion object {
         fun newInstance() = JobListFragment()
     }
 
-    override var presenter: JobsContract.Presenter
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-        set(value) {}
+    override fun showJobs(jobs: ArrayList<Job>) {
 
-    override fun showJobs(jobs: List<Job>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        mAdapter.setJobs(jobs)
+
+        mAdapter.notifyDataSetChanged()
+
     }
 
     override fun showNoJobs() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun showProgressBar() {

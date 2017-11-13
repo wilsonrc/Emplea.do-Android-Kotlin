@@ -8,7 +8,7 @@ import io.reactivex.Single
 
 class JobsRemoteDataSource(private val jobsService: JobsService) : JobsDataSource {
 
-    override fun getJobs(): Observable<List<Job>> {
+    override fun getJobs(): Observable<ArrayList<Job>> {
        var map = emptyMap<String, String>()
 
        return jobsService.getJobs(map)

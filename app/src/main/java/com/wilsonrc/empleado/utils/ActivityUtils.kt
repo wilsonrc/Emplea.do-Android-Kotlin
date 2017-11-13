@@ -2,6 +2,7 @@ package com.wilsonrc.empleado.utils
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentTransaction
 
 
 object ActivityUtils {

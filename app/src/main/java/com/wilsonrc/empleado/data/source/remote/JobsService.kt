@@ -30,7 +30,7 @@ interface JobsService {
     }
 
     @GET("empleos.json")
-    fun getJobs(@QueryMap options: Map<String, String>) : Observable<List<Job>>
+    fun getJobs(@QueryMap options: Map<String, String>) : Observable<ArrayList<Job>>
 
     @GET("")
     fun getJob( @Query("JobId") jobId: String) : Single<Job>

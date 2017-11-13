@@ -8,9 +8,9 @@ import com.wilsonrc.empleado.data.source.remote.JobsRemoteDataSource
 import com.wilsonrc.empleado.data.source.remote.JobsService
 import com.wilsonrc.empleado.utils.ActivityUtils
 
-class JobsActivity : AppCompatActivity() {
+class JobsActivity : AppCompatActivity(){
 
-    private lateinit var jobsPresenter: JobsPresenter
+    private var mPresenter : JobsPresenter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,10 +19,11 @@ class JobsActivity : AppCompatActivity() {
 
         val listResultFragment = JobListFragment.newInstance()
 
-        jobsPresenter = JobsPresenter(JobsRepository(JobsRemoteDataSource(JobsService.create())),listResultFragment);
+        mPresenter = JobsPresenter(JobsRepository(JobsRemoteDataSource(JobsService.create())), listResultFragment)
 
-        ActivityUtils.addFragmentToActivity(supportFragmentManager,  listResultFragment, R.id.jobs_list_container)
+        ActivityUtils.addFragmentToActivity(supportFragmentManager,listResultFragment,R.id.jobs_list_container)
 
-        listResultFragment.presenter = jobsPresenter
+        listResultFragment.presenter = mPresenter as JobsPresenter
     }
+
 }
