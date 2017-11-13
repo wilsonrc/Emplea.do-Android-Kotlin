@@ -13,7 +13,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="215dp">
+        android:layout_height="220dp">
 
         <TextView
             android:id="@+id/text_view_job_tag"
@@ -21,7 +21,6 @@
             android:layout_alignStart="@+id/text_view_job_title"
             android:layout_alignLeft="@+id/text_view_job_title"
             android:text="Remote"
-            android:elevation="4dp"
             android:padding="1dp"
             android:paddingEnd="3dp"
             android:paddingStart="3dp"
@@ -55,9 +54,9 @@
             android:layout_height="wrap_content" />
 
         <ImageView
-            android:layout_alignLeft="@id/text_view_job_title"
+            android:layout_alignLeft="@+id/text_view_job_title"
             android:id="@+id/ic_date"
-            android:layout_alignBottom="@id/text_view_job_publication_date"
+            android:layout_alignBottom="@+id/text_view_job_publication_date"
             android:src="@drawable/ic_date_range_black_24dp"
             android:layout_width="16dp"
             android:layout_height="16dp" />
@@ -65,8 +64,8 @@
         <TextView
             android:id="@+id/text_view_job_publication_date"
             android:textSize="12sp"
-            android:layout_toRightOf="@id/ic_date"
-            android:layout_toEndOf="@id/ic_date"
+            android:layout_toRightOf="@+id/ic_date"
+            android:layout_toEndOf="@+id/ic_date"
             android:layout_below="@+id/text_view_job_title"
             android:textColor="@color/primaryText"
             android:fontFamily="sans-serif-light"
@@ -80,7 +79,7 @@
             android:id="@+id/ic_location"
             android:layout_alignLeft="@+id/text_view_job_title"
             android:layout_alignStart="@+id/text_view_job_title"
-            android:layout_alignBottom="@id/text_view_company_location"
+            android:layout_alignBottom="@+id/text_view_company_location"
             android:src="@drawable/ic_location_city_black_24dp"
             android:layout_width="16dp"
             android:layout_height="16dp" />
@@ -88,7 +87,8 @@
         <TextView
             android:id="@+id/text_view_company_location"
             android:textSize="12sp"
-            android:layout_toRightOf="@id/ic_location"
+            android:layout_toRightOf="@+id/ic_location"
+            android:layout_toEndOf="@+id/ic_location"
             android:layout_below="@+id/text_view_job_publication_date"
             android:textColor="@color/primaryText"
             android:fontFamily="sans-serif-light"
@@ -103,6 +103,7 @@
         <TextView
             android:id="@+id/text_view_visits"
             android:layout_toLeftOf="@+id/ic_likes"
+            android:layout_toStartOf="@+id/ic_likes"
             android:layout_alignBottom="@+id/text_view_job_salary"
             android:layout_marginRight="16dp"
             android:layout_marginEnd="16dp"
@@ -136,7 +137,7 @@
             android:id="@+id/ic_salary"
             android:layout_alignLeft="@+id/text_view_job_title"
             android:layout_alignStart="@+id/text_view_job_title"
-            android:layout_alignBottom="@id/text_view_job_salary"
+            android:layout_alignBottom="@+id/text_view_job_salary"
             android:src="@drawable/ic_attach_money_black_24dp"
             android:layout_width="16dp"
             android:layout_height="16dp" />
@@ -145,6 +146,7 @@
             android:id="@+id/text_view_job_salary"
             android:textSize="12sp"
             android:layout_toRightOf="@+id/ic_salary"
+            android:layout_toEndOf="@+id/ic_salary"
             android:layout_below="@+id/text_view_company_location"
             android:textColor="@color/primaryText"
             android:fontFamily="sans-serif-light"
@@ -154,7 +156,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <view
+        <View
             android:layout_above="@+id/image_view_company_logo"
             android:background="@android:color/darker_gray"
             android:layout_width="match_parent"

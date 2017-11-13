@@ -4,26 +4,20 @@ package com.wilsonrc.empleado.jobs
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 
 import com.wilsonrc.empleado.R
-import com.wilsonrc.empleado.data.source.jobs.JobsRepository
 import com.wilsonrc.empleado.data.source.models.Job
-import com.wilsonrc.empleado.data.source.remote.JobsRemoteDataSource
-import com.wilsonrc.empleado.data.source.remote.JobsService
 import kotlinx.android.synthetic.main.fragment_job_list.*
-
-import kotlinx.android.synthetic.main.fragment_job_list.view.*
 
 class JobListFragment : Fragment() , JobsContract.View {
 
     override lateinit var presenter: JobsContract.Presenter
 
-    lateinit var mAdapter : JobsListAdapter
+    private var mAdapter : JobsListAdapter? = null
 
     override fun onResume() {
         super.onResume()
@@ -37,7 +31,7 @@ class JobListFragment : Fragment() , JobsContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mAdapter = JobsListAdapter()
+        mAdapter = JobsListAdapter(ArrayList<Job>())
 
         rv_jobs.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
 
@@ -50,9 +44,9 @@ class JobListFragment : Fragment() , JobsContract.View {
 
     override fun showJobs(jobs: ArrayList<Job>) {
 
-        mAdapter.setJobs(jobs)
+        mAdapter?.setJobs(jobs)
 
-        mAdapter.notifyDataSetChanged()
+        mAdapter?.notifyDataSetChanged()
 
     }
 
