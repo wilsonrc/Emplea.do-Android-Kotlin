@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Emplea.do</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="view_details">View Details</string>
+    <string name="intermediate_software_developer">Job\'s Position Name</string>
+    <string name="company_name">Company Name</string>
 </resources>

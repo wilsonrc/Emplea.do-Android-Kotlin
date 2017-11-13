@@ -10,11 +10,15 @@ class JobsRemoteDataSource(private val jobsService: JobsService) : JobsDataSourc
 
     override fun getJobs(): Observable<List<Job>> {
        var map = emptyMap<String, String>()
-       return jobsService.getJobs(map);
+
+       return jobsService.getJobs(map)
+
     }
 
     override fun getJob(jobId: String): Single<Job> {
+
         return jobsService.getJob(jobId)
+
     }
 
 }
