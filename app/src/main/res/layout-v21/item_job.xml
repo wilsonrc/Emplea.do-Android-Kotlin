@@ -13,7 +13,26 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp">
+        android:layout_height="225dp">
+
+        <TextView
+            android:id="@+id/text_view_job_category"
+            android:layout_marginTop="16dp"
+            android:layout_alignStart="@+id/text_view_job_title"
+            android:layout_alignLeft="@+id/text_view_job_title"
+            android:text="Remote"
+            android:padding="1dp"
+            android:paddingEnd="3dp"
+            android:paddingStart="3dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/job_tag_custom_shape"
+            android:fontFamily="sans-serif-ligth"
+            style="@style/Base.TextAppearance.AppCompat.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
 
         <TextView
             android:id="@+id/text_view_job_tag"
@@ -26,6 +45,7 @@
             android:paddingStart="3dp"
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/job_tag_custom_shape"
             android:fontFamily="sans-serif-ligth"
             style="@style/Base.TextAppearance.AppCompat.Inverse"
@@ -46,6 +66,7 @@
             android:layout_below="@+id/text_view_company_name"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
+            android:layout_marginBottom="4dp"
             android:textColor="@color/primaryText"
             android:textSize="20sp"
             android:fontFamily="sans-serif-medium"
