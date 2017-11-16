@@ -47,6 +47,7 @@ class JobListFragment : Fragment() , JobsContract.View {
         rv_jobs.adapter = mAdapter
 
         presenter?.loadJobs(mPage.toString())
+
     }
 
     companion object {

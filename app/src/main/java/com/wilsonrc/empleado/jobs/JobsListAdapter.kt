@@ -1,9 +1,12 @@
 package com.wilsonrc.empleado.jobs
 
+import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.wilsonrc.empleado.JobDetail.JobDetailActivity
 import com.wilsonrc.empleado.R
 import com.wilsonrc.empleado.data.source.models.Job
 import kotlinx.android.synthetic.main.item_job.view.*
@@ -15,6 +18,7 @@ class JobsListAdapter(private val jobList: MutableList<Job>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindJob( jobList[position])
+
     }
 
     fun setJobs(jobs: ArrayList<Job>){
@@ -36,6 +40,9 @@ class JobsListAdapter(private val jobList: MutableList<Job>) :
     class ViewHolder(view: View)
         : RecyclerView.ViewHolder(view) {
 
+
+
+
         fun bindJob(job: Job){
             with(job){
                 itemView.text_view_company_name.text = jobCompany
@@ -43,6 +50,13 @@ class JobsListAdapter(private val jobList: MutableList<Job>) :
                 itemView.text_view_job_tag.text = jobType
                 itemView.text_view_job_title.text = jobTitle
                 itemView.text_view_job_publication_date.text = jobDate
+                itemView.setOnClickListener(object : View.OnClickListener{
+                    override fun onClick(p0: View?) {
+                        val intent = Intent(itemView.context, JobDetailActivity::class.java)
+                        intent.putExtra("JOB_URL", jobLink)
+                        itemView.context.startActivity(intent)
+                    }
+                })
             }
         }
     }

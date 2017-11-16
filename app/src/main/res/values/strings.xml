@@ -6,4 +6,8 @@
     <string name="view_details">View Details</string>
     <string name="intermediate_software_developer">Job\'s Position Name</string>
     <string name="company_name">Company Name</string>
+
+    <string name="title_activity_job_detail">JobDetailActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
