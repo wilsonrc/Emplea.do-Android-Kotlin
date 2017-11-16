@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.wilsonrc.empleado.jobs.JobListFragment">
 
-    <ProgressBar
-        android:id="@+id/progressBarJobListing"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:indeterminate="true"
-        android:layout_height="15dp" />
 
     <Spinner
         android:layout_margin="4dp"
@@ -24,6 +17,15 @@
         android:minHeight="48dp"
         android:visibility="gone"
       />
+
+    <ProgressBar
+        android:id="@+id/progressBarJobListing"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:indeterminate="true"
+        android:layout_marginBottom="4dp"
+        android:layout_height="15dp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_jobs"

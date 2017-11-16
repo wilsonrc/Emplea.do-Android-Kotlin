@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_job_list.*
 
 class JobListFragment : Fragment() , JobsContract.View {
 
-    override lateinit var presenter: JobsContract.Presenter
+    override var presenter: JobsContract.Presenter? = null
 
     private var mAdapter : JobsListAdapter? = null
 
@@ -42,13 +42,13 @@ class JobListFragment : Fragment() , JobsContract.View {
 
         rv_jobs.clearOnScrollListeners()
 
-        rv_jobs.addOnScrollListener(InfiniteScrollListener({ presenter.loadJobs(mPage.toString(), mSelectedCategory)},linealLayout))
+        rv_jobs.addOnScrollListener(InfiniteScrollListener({ presenter?.loadJobs(mPage.toString(), mSelectedCategory)},linealLayout))
 
         rv_jobs.adapter = mAdapter
 
-        presenter.loadJobs(mPage.toString(),mSelectedCategory)
+        presenter?.loadJobs(mPage.toString(),mSelectedCategory)
 
-        presenter.loadJobCategories()
+        presenter?.loadJobCategories()
 
     }
 
@@ -83,7 +83,7 @@ class JobListFragment : Fragment() , JobsContract.View {
                         mSelectedCategory = item.name.toString()
                         mAdapter?.reset()
                         mPage = 1
-                        presenter.loadJobs(mPage.toString(), mSelectedCategory)
+                        presenter?.loadJobs(mPage.toString(), mSelectedCategory)
                 }
             }
 
@@ -97,6 +97,7 @@ class JobListFragment : Fragment() , JobsContract.View {
     }
 
     override fun showProgressBar() {
+
         progressBarJobListing.visibility = View.VISIBLE
     }
 
