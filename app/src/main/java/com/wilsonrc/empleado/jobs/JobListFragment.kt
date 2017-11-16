@@ -58,6 +58,8 @@ class JobListFragment : Fragment() , JobsContract.View {
 
     override fun showJobs(jobs: ArrayList<Job>) {
 
+       hideProgressBar()
+
         mAdapter?.setJobs(jobs)
 
         mAdapter?.notifyDataSetChanged()
@@ -95,11 +97,11 @@ class JobListFragment : Fragment() , JobsContract.View {
     }
 
     override fun showProgressBar() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        progressBarJobListing.visibility = View.VISIBLE
     }
 
     override fun hideProgressBar() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        progressBarJobListing.visibility = View.GONE
     }
 
 

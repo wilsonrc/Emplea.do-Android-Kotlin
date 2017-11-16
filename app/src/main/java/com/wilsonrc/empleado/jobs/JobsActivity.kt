@@ -2,6 +2,9 @@ package com.wilsonrc.empleado.jobs
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import com.wilsonrc.empleado.R
 import com.wilsonrc.empleado.data.source.JobCategory.JobCategoryRepository
 import com.wilsonrc.empleado.data.source.jobs.JobsRepository
@@ -10,6 +13,7 @@ import com.wilsonrc.empleado.data.source.remote.JobCategoryService
 import com.wilsonrc.empleado.data.source.remote.JobsRemoteDataSource
 import com.wilsonrc.empleado.data.source.remote.JobsService
 import com.wilsonrc.empleado.utils.ActivityUtils
+import kotlinx.android.synthetic.main.fragment_job_list.*
 
 class JobsActivity : AppCompatActivity(){
 
@@ -30,4 +34,23 @@ class JobsActivity : AppCompatActivity(){
         listResultFragment.presenter = mPresenter as JobsPresenter
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        val id = item?.itemId
+        when(id){
+            R.id.filter -> {
+                if(spinnerJobCategory.visibility == View.VISIBLE)
+                {
+                    spinnerJobCategory.visibility = View.GONE
+                }else{
+                    spinnerJobCategory.visibility = View.VISIBLE
+                }
+            }
+        }
+        return true
+    }
 }

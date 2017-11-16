@@ -23,7 +23,12 @@ class JobsPresenter(private val jobsRepository: JobsRepository, private val jobC
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        { result -> jobsView.showJobs(result)},
+                        { result ->
+                            run {
+                                jobsView.showProgressBar()
+                                jobsView.showJobs(result)
+                            }
+                        },
                         { jobsView.showNoJobs()}
                 )
     }
