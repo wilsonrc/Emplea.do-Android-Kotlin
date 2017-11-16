@@ -21,6 +21,11 @@ class JobsListAdapter(private val jobList: MutableList<Job>) :
 
     }
 
+    fun reset(){
+        jobList.clear()
+        notifyDataSetChanged()
+    }
+
     fun setJobs(jobs: ArrayList<Job>){
         jobList.addAll(jobs)
         notifyDataSetChanged()

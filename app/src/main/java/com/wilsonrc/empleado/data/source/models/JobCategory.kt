@@ -17,4 +17,9 @@ class JobCategory {
     @Expose
     var description : String? = null
 
+    override fun toString(): String {
+        return description.toString()
+    }
+
+
 }

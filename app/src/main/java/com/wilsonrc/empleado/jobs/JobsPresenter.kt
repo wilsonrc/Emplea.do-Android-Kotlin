@@ -17,9 +17,9 @@ class JobsPresenter(private val jobsRepository: JobsRepository, private val jobC
 
     }
 
-    override fun loadJobs(page: String) {
+    override fun loadJobs(page: String, category: String) {
 
-        disposable = jobsRepository.getJobs(page = page)
+        disposable = jobsRepository.getJobs(page = page, category = category)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
@@ -32,14 +32,8 @@ class JobsPresenter(private val jobsRepository: JobsRepository, private val jobC
         disposable = jobCategoryRepository.getJobCategories()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map{
-                    var categories: ArrayList<String> = ArrayList()
-                    for(category in it){
-                        category.name?.let { categoryName -> categories.add(categoryName) }
-                    }
-                    categories
-                }
                 .subscribe({result -> jobsView.showJobCategories(result)})
     }
+
 
 }

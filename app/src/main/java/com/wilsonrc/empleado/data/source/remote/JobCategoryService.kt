@@ -31,7 +31,7 @@ interface JobCategoryService {
         }
     }
 
-    @GET("ikfk3")
+    @GET("t5y4j")
     fun getJobCategories() : Single<ArrayList<JobCategory>>
 
 }

@@ -17,13 +17,13 @@ interface JobsContract {
 
         fun hideProgressBar()
 
-        fun showJobCategories(categories : ArrayList<String>)
+        fun showJobCategories(categories : ArrayList<JobCategory>)
 
     }
 
     interface Presenter : BasePresenter {
 
-        fun loadJobs(page : String)
+        fun loadJobs(page : String , category : String)
 
         fun loadJobCategories()
 

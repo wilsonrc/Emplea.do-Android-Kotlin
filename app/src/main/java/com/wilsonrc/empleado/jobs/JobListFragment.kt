@@ -25,6 +25,8 @@ class JobListFragment : Fragment() , JobsContract.View {
 
     private var mPage : Int = 1
 
+    private var mSelectedCategory : String = "None"
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
        return inflater.inflate(R.layout.fragment_job_list, container, false)
     }
@@ -40,13 +42,13 @@ class JobListFragment : Fragment() , JobsContract.View {
 
         rv_jobs.clearOnScrollListeners()
 
-        rv_jobs.addOnScrollListener(InfiniteScrollListener({ presenter.loadJobs(mPage.toString())},linealLayout))
+        rv_jobs.addOnScrollListener(InfiniteScrollListener({ presenter.loadJobs(mPage.toString(), mSelectedCategory)},linealLayout))
 
         rv_jobs.adapter = mAdapter
 
-        presenter?.loadJobs(mPage.toString())
+        presenter.loadJobs(mPage.toString(),mSelectedCategory)
 
-        presenter?.loadJobCategories()
+        presenter.loadJobCategories()
 
     }
 
@@ -64,8 +66,8 @@ class JobListFragment : Fragment() , JobsContract.View {
 
     }
 
-    override fun showJobCategories(categories: ArrayList<String>) {
-        var adapter = ArrayAdapter<String>(context,android.R.layout.simple_spinner_item, categories)
+    override fun showJobCategories(categories: ArrayList<JobCategory>) {
+        var adapter = ArrayAdapter(context,android.R.layout.simple_spinner_item, categories)
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
@@ -73,12 +75,19 @@ class JobListFragment : Fragment() , JobsContract.View {
 
         spinnerJobCategory.onItemSelectedListener = (object: AdapterView.OnItemSelectedListener {
 
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+                val item = spinnerJobCategory.selectedItem as JobCategory
+                if(mSelectedCategory != item.name){
+                        mSelectedCategory = item.name.toString()
+                        mAdapter?.reset()
+                        mPage = 1
+                        presenter.loadJobs(mPage.toString(), mSelectedCategory)
+                }
+            }
+
             override fun onNothingSelected(p0: AdapterView<*>?) {
-            }
 
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
             }
-
         })
     }
 
