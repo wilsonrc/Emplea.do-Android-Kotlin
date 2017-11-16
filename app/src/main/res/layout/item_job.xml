@@ -13,7 +13,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="225dp">
+        android:layout_height="235dp">
 
         <TextView
             android:id="@+id/text_view_job_tag"
@@ -53,7 +53,11 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/intermediate_software_developer"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
+            android:maxLines="1"/>
 
         <ImageView
             android:layout_alignLeft="@+id/text_view_job_title"
@@ -81,7 +85,7 @@
             android:id="@+id/ic_location"
             android:layout_alignLeft="@+id/text_view_job_title"
             android:layout_alignStart="@+id/text_view_job_title"
-            android:layout_alignBottom="@+id/text_view_company_location"
+            android:layout_alignTop="@+id/text_view_company_location"
             android:src="@drawable/ic_location_city_black_24dp"
             android:layout_width="16dp"
             android:layout_height="16dp" />
@@ -94,7 +98,8 @@
             android:layout_below="@+id/text_view_job_publication_date"
             android:textColor="@color/primaryText"
             android:fontFamily="sans-serif-light"
-            android:text="Santo Domingo, Dominican Republic"
+            android:text="Santo Domingo, Republica Dominicana Dominican Republic"
+            android:maxLines="1"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
@@ -112,7 +117,8 @@
             android:text="Visitas | 0"
             android:textSize="12sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/divider"/>
 
         <ImageView
             android:id="@+id/ic_likes"
@@ -120,7 +126,8 @@
             android:layout_alignBottom="@+id/text_view_job_salary"
             android:src="@drawable/ic_thumb_up_black_24dp"
             android:layout_width="16dp"
-            android:layout_height="16dp" />
+            android:layout_height="16dp"
+            android:layout_above="@+id/divider"/>
 
         <TextView
             android:id="@+id/text_view_job_likes"
@@ -132,14 +139,15 @@
             android:text="  0"
             android:textSize="12sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/divider"/>
 
 
         <ImageView
             android:id="@+id/ic_salary"
             android:layout_alignLeft="@+id/text_view_job_title"
             android:layout_alignStart="@+id/text_view_job_title"
-            android:layout_alignBottom="@+id/text_view_job_salary"
+            android:layout_alignTop="@+id/text_view_job_salary"
             android:src="@drawable/ic_attach_money_black_24dp"
             android:layout_width="16dp"
             android:layout_height="16dp" />
@@ -156,9 +164,12 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/divider"/>
 
         <View
+            android:layout_marginTop="4dp"
+            android:id="@+id/divider"
             android:layout_above="@+id/image_view_company_logo"
             android:background="@android:color/darker_gray"
             android:layout_width="match_parent"

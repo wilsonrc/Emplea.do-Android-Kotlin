@@ -5,14 +5,18 @@ import com.wilsonrc.empleado.data.source.remote.JobsRemoteDataSource
 import io.reactivex.Observable
 import io.reactivex.Single
 
-class JobsRepository(val jobsRemoteDataSource: JobsRemoteDataSource) : JobsDataSource {
+class JobsRepository(private val jobsRemoteDataSource: JobsRemoteDataSource) : JobsDataSource {
 
-    override fun getJobs(): Observable<ArrayList<Job>> {
-       return  jobsRemoteDataSource.getJobs()
+    override fun getJobs(page: String, pageSize: String, category: String): Observable<ArrayList<Job>> {
+
+       return  jobsRemoteDataSource.getJobs(page,pageSize,category)
+
     }
 
     override fun getJob(jobId: String): Single<Job> {
+
         return jobsRemoteDataSource.getJob(jobId)
+
     }
 
 }

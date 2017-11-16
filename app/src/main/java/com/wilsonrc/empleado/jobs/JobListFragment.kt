@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 
 import com.wilsonrc.empleado.R
 import com.wilsonrc.empleado.data.source.models.Job
+import com.wilsonrc.empleado.utils.InfiniteScrollListener
 import kotlinx.android.synthetic.main.fragment_job_list.*
 
 class JobListFragment : Fragment() , JobsContract.View {
@@ -19,9 +20,11 @@ class JobListFragment : Fragment() , JobsContract.View {
 
     private var mAdapter : JobsListAdapter? = null
 
+    private var mPage : Int = 1
+
     override fun onResume() {
         super.onResume()
-        presenter.start()
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -31,11 +34,19 @@ class JobListFragment : Fragment() , JobsContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mAdapter = JobsListAdapter(ArrayList<Job>())
+        mAdapter = JobsListAdapter(ArrayList())
 
-        rv_jobs.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+        val linealLayout = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+
+        rv_jobs.layoutManager = linealLayout
+
+        rv_jobs.clearOnScrollListeners()
+
+        rv_jobs.addOnScrollListener(InfiniteScrollListener({ presenter.loadJobs(mPage.toString())},linealLayout))
 
         rv_jobs.adapter = mAdapter
+
+        presenter?.loadJobs(mPage.toString())
     }
 
     companion object {
@@ -47,6 +58,8 @@ class JobListFragment : Fragment() , JobsContract.View {
         mAdapter?.setJobs(jobs)
 
         mAdapter?.notifyDataSetChanged()
+
+        mPage++
 
     }
 

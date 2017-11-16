@@ -7,19 +7,17 @@ import io.reactivex.schedulers.Schedulers
 
 
 
-class JobsPresenter(val jobsRepository: JobsRepository, val jobsView: JobsContract.View) : JobsContract.Presenter {
+class JobsPresenter(private val jobsRepository: JobsRepository, private val jobsView: JobsContract.View) : JobsContract.Presenter {
 
     private var disposable: Disposable? = null
 
     override fun start() {
 
-       loadJobs()
-
     }
 
-    override fun loadJobs() {
+    override fun loadJobs(page: String) {
 
-        disposable = jobsRepository.getJobs()
+        disposable = jobsRepository.getJobs(page = page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

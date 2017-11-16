@@ -20,7 +20,7 @@ interface JobsContract {
 
     interface Presenter : BasePresenter {
 
-        fun loadJobs()
+        fun loadJobs(page : String)
 
     }
 
