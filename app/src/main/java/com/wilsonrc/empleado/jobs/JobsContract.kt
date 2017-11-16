@@ -3,6 +3,7 @@ package com.wilsonrc.empleado.jobs
 import com.wilsonrc.empleado.BasePresenter
 import com.wilsonrc.empleado.BaseView
 import com.wilsonrc.empleado.data.source.models.Job
+import com.wilsonrc.empleado.data.source.models.JobCategory
 
 interface JobsContract {
 
@@ -16,11 +17,15 @@ interface JobsContract {
 
         fun hideProgressBar()
 
+        fun showJobCategories(categories : ArrayList<String>)
+
     }
 
     interface Presenter : BasePresenter {
 
         fun loadJobs(page : String)
+
+        fun loadJobCategories()
 
     }
 

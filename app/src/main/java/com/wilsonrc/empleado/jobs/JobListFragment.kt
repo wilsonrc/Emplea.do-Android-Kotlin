@@ -7,10 +7,13 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 
 import com.wilsonrc.empleado.R
 import com.wilsonrc.empleado.data.source.models.Job
+import com.wilsonrc.empleado.data.source.models.JobCategory
 import com.wilsonrc.empleado.utils.InfiniteScrollListener
 import kotlinx.android.synthetic.main.fragment_job_list.*
 
@@ -21,11 +24,6 @@ class JobListFragment : Fragment() , JobsContract.View {
     private var mAdapter : JobsListAdapter? = null
 
     private var mPage : Int = 1
-
-    override fun onResume() {
-        super.onResume()
-
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
        return inflater.inflate(R.layout.fragment_job_list, container, false)
@@ -48,6 +46,8 @@ class JobListFragment : Fragment() , JobsContract.View {
 
         presenter?.loadJobs(mPage.toString())
 
+        presenter?.loadJobCategories()
+
     }
 
     companion object {
@@ -62,6 +62,24 @@ class JobListFragment : Fragment() , JobsContract.View {
 
         mPage++
 
+    }
+
+    override fun showJobCategories(categories: ArrayList<String>) {
+        var adapter = ArrayAdapter<String>(context,android.R.layout.simple_spinner_item, categories)
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        spinnerJobCategory.adapter = adapter
+
+        spinnerJobCategory.onItemSelectedListener = (object: AdapterView.OnItemSelectedListener {
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            }
+
+        })
     }
 
     override fun showNoJobs() {
