@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_job_list.*
 
 class JobListFragment : Fragment() , JobsContract.View {
 
-    override var presenter: JobsContract.Presenter? = null
+    override lateinit var presenter: JobsContract.Presenter
 
     private var mAdapter : JobsListAdapter? = null
 
@@ -31,25 +31,29 @@ class JobListFragment : Fragment() , JobsContract.View {
        return inflater.inflate(R.layout.fragment_job_list, container, false)
     }
 
+    private lateinit var mLinealLayout: LinearLayoutManager
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         mAdapter = JobsListAdapter(ArrayList())
 
-        val linealLayout = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+        mLinealLayout = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
 
-        rv_jobs.layoutManager = linealLayout
+        rv_jobs.layoutManager = mLinealLayout
 
-        rv_jobs.clearOnScrollListeners()
 
-        rv_jobs.addOnScrollListener(InfiniteScrollListener({ presenter?.loadJobs(mPage.toString(), mSelectedCategory)},linealLayout))
 
         rv_jobs.adapter = mAdapter
 
-        presenter?.loadJobs(mPage.toString(),mSelectedCategory)
+        presenter.loadJobs(mPage.toString(),mSelectedCategory)
 
-        presenter?.loadJobCategories()
+        presenter.loadJobCategories()
 
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 
     companion object {
@@ -64,12 +68,16 @@ class JobListFragment : Fragment() , JobsContract.View {
 
         mAdapter?.notifyDataSetChanged()
 
+        rv_jobs.clearOnScrollListeners()
+
+        rv_jobs.addOnScrollListener(InfiniteScrollListener({ presenter.loadJobs(mPage.toString(), mSelectedCategory) },mLinealLayout))
+
         mPage++
 
     }
 
     override fun showJobCategories(categories: ArrayList<JobCategory>) {
-        var adapter = ArrayAdapter(context,android.R.layout.simple_spinner_item, categories)
+        val adapter = ArrayAdapter(context,android.R.layout.simple_spinner_item, categories)
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
@@ -83,7 +91,7 @@ class JobListFragment : Fragment() , JobsContract.View {
                         mSelectedCategory = item.name.toString()
                         mAdapter?.reset()
                         mPage = 1
-                        presenter?.loadJobs(mPage.toString(), mSelectedCategory)
+                        presenter.loadJobs(mPage.toString(), mSelectedCategory)
                 }
             }
 
