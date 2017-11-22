@@ -6,7 +6,7 @@ import io.reactivex.Single
 
 interface JobsDataSource {
 
-    fun getJobs(page: String = "1", pageSize: String = "5", category: String = "None") : Observable<ArrayList<Job>>
+    fun getJobs(page: String = "1", pageSize: String = "10", category: String = "None") : Observable<ArrayList<Job>>
 
     fun getJob(jobId: String): Single<Job>
 
