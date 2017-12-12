@@ -26,12 +26,8 @@ class JobsActivity : AppCompatActivity(){
 
         val listResultFragment = JobListFragment.newInstance()
 
-        mPresenter = JobsPresenter(jobsRepository =  JobsRepository(JobsRemoteDataSource(JobsService.create())),
-                jobCategoryRepository = JobCategoryRepository(JobCategoryRemoteDataSource(JobCategoryService.create())) , jobsView =  listResultFragment)
+        ActivityUtils.replaceFragmentInActivity(supportFragmentManager,listResultFragment,R.id.jobs_list_container)
 
-        ActivityUtils.addFragmentToActivity(supportFragmentManager,listResultFragment,R.id.jobs_list_container)
-
-        listResultFragment.presenter = mPresenter as JobsPresenter
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

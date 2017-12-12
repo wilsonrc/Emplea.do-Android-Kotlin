@@ -21,7 +21,7 @@ interface JobsContract {
 
     }
 
-    interface Presenter : BasePresenter {
+    interface Presenter : BasePresenter<View>  {
 
         fun loadJobs(page : String , category : String)
 

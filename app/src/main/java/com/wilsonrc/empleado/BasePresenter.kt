@@ -1,7 +1,6 @@
 package com.wilsonrc.empleado
 
-interface BasePresenter {
-
-    fun start()
-
+interface BasePresenter<in T> {
+    fun attach(view: T)
+    fun detach()
 }

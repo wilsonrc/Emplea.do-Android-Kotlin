@@ -9,13 +9,23 @@ import io.reactivex.schedulers.Schedulers
 
 
 
-class JobsPresenter(private val jobsRepository: JobsRepository, private val jobCategoryRepository: JobCategoryRepository ,private val jobsView: JobsContract.View) : JobsContract.Presenter {
+class JobsPresenter(private val jobsRepository: JobsRepository, private val jobCategoryRepository: JobCategoryRepository) : JobsContract.Presenter {
+
+    private lateinit var mJobsView :  JobsContract.View
+
+    override fun attach(view: JobsContract.View) {
+        mJobsView = view
+    }
+
+    override fun detach() {
+        disposable?.dispose()
+    }
 
     private var disposable: Disposable? = null
 
-    override fun start() {
 
-    }
+
+
 
     override fun loadJobs(page: String, category: String) {
 
@@ -25,11 +35,11 @@ class JobsPresenter(private val jobsRepository: JobsRepository, private val jobC
                 .subscribe(
                         { result ->
                             run {
-                                jobsView.showProgressBar()
-                                jobsView.showJobs(result)
+                                mJobsView.showProgressBar()
+                                mJobsView.showJobs(result)
                             }
                         },
-                        { jobsView.showNoJobs()}
+                        { mJobsView.showNoJobs()}
                 )
     }
 
@@ -37,7 +47,7 @@ class JobsPresenter(private val jobsRepository: JobsRepository, private val jobC
         disposable = jobCategoryRepository.getJobCategories()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({result -> jobsView.showJobCategories(result)})
+                .subscribe({result -> mJobsView.showJobCategories(result)})
     }
 
 
