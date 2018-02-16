@@ -1,9 +1,25 @@
 # Emplea.do-Android-Kotlin
 
-Version nativa de la pagina http://emplea.do/ utilizando Kotlin, Rxjava, Mvp
+Android App that allows to find technology jobs in the Dominican Republic. 
 
-Utilizando el API: https://apiempleado.ga/
+## ScreenShots
 
-Aqui screen shots de la version actual del App:
+## MainActivity
+<img src="https://raw.githubusercontent.com/wilsonrc/Where2Eat/master/screenshots/Home%20Screen.png" align="center" height="500px" width="282px"/>
 
-![Alt text](/screenshots/Home%20Screen.png?raw=true "Optional Title")
+### Actual features:
++ Show List of Job offers.
++ Search by Category.
++ WebView Job Detail.
+
+### Future features:
++ Integrate the app With a new Backend.
++ Dependency Injection.
++ JVM tests
++ UI tests using Espresso
+   
+### App Architecture:
++ Model View Presenter (MVP)
++ Package by feature
++ Kotlin
++ Rxjava
