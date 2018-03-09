@@ -5,26 +5,52 @@ import com.google.gson.annotations.SerializedName
 
 class Job {
 
-    @SerializedName("jobTitle")
+    @SerializedName("id")
     @Expose
-    var jobTitle: String? = null
-    @SerializedName("JobLink")
+    var id: Int? = null
+    @SerializedName("title")
     @Expose
-    var jobLink: String? = null
-    @SerializedName("jobCompany")
+    var title: String? = null
+    @SerializedName("description")
     @Expose
-    var jobCompany: String? = null
-    @SerializedName("jobLocation")
+    var description: String? = null
+    @SerializedName("howToApply")
     @Expose
-    var jobLocation: String? = null
-    @SerializedName("jobDate")
+    var howToApply: String? = null
+    @SerializedName("categoryId")
     @Expose
-    var jobDate: String? = null
-    @SerializedName("jobCategory")
+    var categoryId: Int? = null
+    @SerializedName("categoryName")
     @Expose
-    var jobCategory: String? = null
-    @SerializedName("jobType")
+    var categoryName: String? = null
+    @SerializedName("companyName")
     @Expose
-    var jobType: String? = null
-
+    var companyName: String? = null
+    @SerializedName("companyUrl")
+    @Expose
+    var companyUrl: Any? = null
+    @SerializedName("companyEmail")
+    @Expose
+    var companyEmail: String? = null
+    @SerializedName("companyLogoUrl")
+    @Expose
+    var companyLogoUrl: Any? = null
+    @SerializedName("viewCount")
+    @Expose
+    var viewCount: Int? = null
+    @SerializedName("hireTypeId")
+    @Expose
+    var hireTypeId: Int? = null
+    @SerializedName("hireTypeName")
+    @Expose
+    var hireTypeName: String? = null
+    @SerializedName("isRemote")
+    @Expose
+    var isRemote: Boolean? = null
+    @SerializedName("publishedDateRaw")
+    @Expose
+    var publishedDateRaw: String? = null
+    @SerializedName("publishedDate")
+    @Expose
+    var publishedDate: String? = null
 }
