@@ -8,10 +8,9 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 
-
 class JobsPresenter(private val jobsRepository: JobsRepository, private val jobCategoryRepository: JobCategoryRepository) : JobsContract.Presenter {
 
-    private lateinit var mJobsView :  JobsContract.View
+    private lateinit var mJobsView: JobsContract.View
 
     override fun attach(view: JobsContract.View) {
         mJobsView = view
@@ -24,22 +23,31 @@ class JobsPresenter(private val jobsRepository: JobsRepository, private val jobC
     private var disposable: Disposable? = null
 
 
-
-
-
     override fun loadJobs(page: String, category: String) {
 
         disposable = jobsRepository.getJobs(page = page, category = category)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .map {
+                    it.data
+                }.doOnError {
+                  t ->  t.printStackTrace()
+                 }
+                .onErrorReturn {
+                 emptyList()
+                }
                 .subscribe(
                         { result ->
                             run {
                                 mJobsView.showProgressBar()
-                                mJobsView.showJobs(result)
+                                if (result != null && result.isNotEmpty()) {
+                                    mJobsView.showJobs(result)
+                                }else{
+                                    mJobsView.showNoJobs()
+                                }
                             }
                         },
-                        { mJobsView.showNoJobs()}
+                        { mJobsView.showNoJobs() }
                 )
     }
 
@@ -47,7 +55,7 @@ class JobsPresenter(private val jobsRepository: JobsRepository, private val jobC
         disposable = jobCategoryRepository.getJobCategories()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({result -> mJobsView.showJobCategories(result)})
+                .subscribe({ result -> mJobsView.showJobCategories(result) })
     }
 
 

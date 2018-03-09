@@ -26,7 +26,7 @@ class JobsListAdapter(private val jobList: MutableList<Job>) :
         notifyDataSetChanged()
     }
 
-    fun setJobs(jobs: ArrayList<Job>){
+    fun setJobs(jobs: List<Job>){
         jobList.addAll(jobs)
         notifyDataSetChanged()
     }
@@ -50,15 +50,17 @@ class JobsListAdapter(private val jobList: MutableList<Job>) :
 
         fun bindJob(job: Job){
             with(job){
-                itemView.text_view_company_name.text = jobCompany
-                itemView.text_view_company_location.text = jobLocation
-                itemView.text_view_job_tag.text = jobType
-                itemView.text_view_job_title.text = jobTitle
-                itemView.text_view_job_publication_date.text = jobDate
+                itemView.text_view_company_name.text = companyName
+//                itemView.text_view_company_location.text = jobLocation
+//                itemView.text_view_job_tag.text = jobType
+                itemView.text_view_visits.text = viewCount.toString()
+                itemView.text_view_job_title.text = title
+                itemView.text_view_job_publication_date.text = publishedDate
+
                 itemView.setOnClickListener(object : View.OnClickListener{
                     override fun onClick(p0: View?) {
                         val intent = Intent(itemView.context, JobDetailActivity::class.java)
-                        intent.putExtra("JOB_URL", jobLink)
+                        intent.putExtra("JOB_URL", "http://emplea.do/")
                         itemView.context.startActivity(intent)
                     }
                 })

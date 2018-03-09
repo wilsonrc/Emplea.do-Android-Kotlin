@@ -9,7 +9,7 @@ interface JobsContract {
 
     interface View : BaseView<Presenter> {
 
-        fun showJobs(jobs: ArrayList<Job>)
+        fun showJobs(jobs: List<Job>)
 
         fun showNoJobs()
 
@@ -17,7 +17,7 @@ interface JobsContract {
 
         fun hideProgressBar()
 
-        fun showJobCategories(categories : ArrayList<JobCategory>)
+        fun showJobCategories(categories : List<JobCategory>)
 
     }
 

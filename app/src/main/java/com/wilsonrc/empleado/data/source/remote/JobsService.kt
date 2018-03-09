@@ -3,6 +3,7 @@ package com.wilsonrc.empleado.data.source.remote
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.wilsonrc.empleado.data.source.models.Job
 import com.wilsonrc.empleado.data.source.models.JobCategory
+import com.wilsonrc.empleado.data.source.models.JobsRequest
 import com.wilsonrc.empleado.utils.LoggingInterceptor
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -23,7 +24,7 @@ interface JobsService {
 
             val client = OkHttpClient.Builder().addInterceptor(LoggingInterceptor()).build()
 
-            val BASE_URL = "https://api.digidev.do/empleado/"
+            val BASE_URL = ""
 
             val retrofit = Retrofit.Builder()
                     .client(client)
@@ -37,8 +38,9 @@ interface JobsService {
         }
     }
 
-    @GET("empleos.json")
-    fun getJobs(@QueryMap options: Map<String, String>) : Observable<ArrayList<Job>>
+
+    @GET("jobs")
+    fun getJobs(@QueryMap options: Map<String, String>) : Observable<JobsRequest>
 
     @GET("")
     fun getJob( @Query("JobId") jobId: String) : Single<Job>

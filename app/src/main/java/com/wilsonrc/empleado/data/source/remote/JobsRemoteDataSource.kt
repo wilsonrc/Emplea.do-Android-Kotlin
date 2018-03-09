@@ -2,6 +2,7 @@ package com.wilsonrc.empleado.data.source.remote
 
 import com.wilsonrc.empleado.data.source.jobs.JobsDataSource
 import com.wilsonrc.empleado.data.source.models.Job
+import com.wilsonrc.empleado.data.source.models.JobsRequest
 import io.reactivex.Observable
 import io.reactivex.Single
 
@@ -9,15 +10,15 @@ import io.reactivex.Single
 class JobsRemoteDataSource(private val jobsService: JobsService) : JobsDataSource {
 
 
-    override fun getJobs(page: String, pageSize: String, category: String): Observable<ArrayList<Job>> {
+    override fun getJobs(page: String, pageSize: String, category: String): Observable<JobsRequest> {
 
         var parameters:MutableMap<String, String> = mutableMapOf()
 
-        parameters.put("page",page)
+        parameters.put("start",page)
 
-        parameters.put("PageSize",pageSize)
+        parameters.put("length",pageSize)
 
-        parameters.put("JobCategory",category)
+//        parameters.put("JobCategory",category)
 
         return jobsService.getJobs(parameters)
 

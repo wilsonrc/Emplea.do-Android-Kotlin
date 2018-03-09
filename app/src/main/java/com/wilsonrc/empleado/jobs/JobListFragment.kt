@@ -32,7 +32,7 @@ class JobListFragment : Fragment() , JobsContract.View {
 
     private var mPage : Int = 1
 
-    private var mSelectedCategory : String = "None"
+    private var mSelectedCategory : String = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         presenter = JobsPresenter(jobsRepository =  JobsRepository(JobsRemoteDataSource(JobsService.create())),
@@ -64,7 +64,7 @@ class JobListFragment : Fragment() , JobsContract.View {
         fun newInstance() = JobListFragment()
     }
 
-    override fun showJobs(jobs: ArrayList<Job>) {
+    override fun showJobs(jobs: List<Job>) {
 
        hideProgressBar()
 
@@ -80,7 +80,7 @@ class JobListFragment : Fragment() , JobsContract.View {
 
     }
 
-    override fun showJobCategories(categories: ArrayList<JobCategory>) {
+    override fun showJobCategories(categories: List<JobCategory>) {
         val adapter = ArrayAdapter(context,android.R.layout.simple_spinner_item, categories)
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -92,7 +92,7 @@ class JobListFragment : Fragment() , JobsContract.View {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
                 val item = spinnerJobCategory.selectedItem as JobCategory
                 if(mSelectedCategory != item.name){
-                        mSelectedCategory = item.name.toString()
+                        mSelectedCategory = item.id.toString()
                         mAdapter?.reset()
                         mPage = 1
                         presenter.loadJobs(mPage.toString(), mSelectedCategory)

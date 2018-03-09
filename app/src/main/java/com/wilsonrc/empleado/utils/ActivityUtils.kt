@@ -9,20 +9,16 @@ object ActivityUtils {
 
     fun addFragmentToActivity(fragmentManager: FragmentManager,
                               fragment: Fragment, frameId: Int) {
-        if (fragmentManager != null && fragment != null) {
-            val transaction = fragmentManager.beginTransaction()
-            transaction.add(frameId, fragment)
-            transaction.commit()
-        }
+        val transaction = fragmentManager.beginTransaction()
+        transaction.add(frameId, fragment)
+        transaction.commit()
     }
 
     fun replaceFragmentInActivity(fragmentManager: FragmentManager,
                                   fragment: Fragment, frameId: Int) {
-        if (fragmentManager != null && fragment != null) {
-            val transaction = fragmentManager.beginTransaction()
-            transaction.replace(frameId, fragment)
-            transaction.commit()
-        }
+        val transaction = fragmentManager.beginTransaction()
+        transaction.replace(frameId, fragment)
+        transaction.commit()
     }
 
 }
