@@ -46,9 +46,6 @@ class JobsListAdapter(private val jobList: MutableList<Job>) :
     class ViewHolder(view: View)
         : RecyclerView.ViewHolder(view) {
 
-
-
-
         fun bindJob(job: Job){
             with(job){
                 itemView.text_view_company_name.text = companyName
@@ -59,10 +56,10 @@ class JobsListAdapter(private val jobList: MutableList<Job>) :
                 }else{
                     itemView.text_view_job_remote.visibility = View.GONE
                 }
-                itemView.text_view_visits.text = viewCount.toString()
+                itemView.text_view_visits.text =  java.lang.String.format(itemView.text_view_visits.text.toString(), viewCount.toString())
                 itemView.text_view_job_title.text = title
                 itemView.text_view_job_publication_date.text = publishedDate
-
+                itemView.text_view_company_email.text = companyEmail
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, JobDetailActivity::class.java)
                     intent.putExtra("JOB_URL", "http://emplea.do/")
