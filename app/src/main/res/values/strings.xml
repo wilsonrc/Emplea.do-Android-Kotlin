@@ -14,4 +14,7 @@
     <string name="item_job_text_default_category">General</string>
     <string name="item_job_text_default_remote">Remote</string>
     <string name="item_job_text_default_location">Ubicacion por determinar</string>
+    <string name="no_jobs_available">No hay Empleos Disponibles en este momento</string>
+    <string name="no_jobs_please_try_later">Por favor intenta mas tarde.</string>
+    <string name="no_jobs_emoji">:\'(</string>
 </resources>

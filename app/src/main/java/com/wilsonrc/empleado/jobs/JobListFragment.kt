@@ -66,6 +66,9 @@ class JobListFragment : Fragment() , JobsContract.View {
 
     override fun showJobs(jobs: List<Job>) {
 
+        main_container.visibility = View.VISIBLE
+        no_jobs_container.visibility = View.GONE
+
        hideProgressBar()
 
         mAdapter?.setJobs(jobs)
@@ -106,6 +109,8 @@ class JobListFragment : Fragment() , JobsContract.View {
     }
 
     override fun showNoJobs() {
+        main_container.visibility = View.GONE
+        no_jobs_container.visibility = View.VISIBLE
     }
 
     override fun showProgressBar() {
