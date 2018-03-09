@@ -17,7 +17,8 @@
         </activity>
         <activity
             android:name=".JobDetail.JobDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".jobs.JobsActivity"
+             />
         <activity android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>

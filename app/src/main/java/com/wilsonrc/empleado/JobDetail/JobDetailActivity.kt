@@ -10,45 +10,51 @@ import android.os.Build
 import android.annotation.TargetApi
 import android.view.View
 import android.webkit.WebViewClient
+import com.wilsonrc.empleado.data.source.models.Job
+import com.wilsonrc.empleado.utils.ActivityUtils
 
 import kotlinx.android.synthetic.main.activity_job_detail.*
 
 
 
-class JobDetailActivity : AppCompatActivity() {
+class JobDetailActivity : AppCompatActivity() , JobDetailContract.View {
+
+    override fun showJobDetail(job: Job) {
+        with(job){
+            textTitle.text = title
+            textCategory.text = categoryName
+            textCompanyName.text = companyName
+            textCompanyNameAbout.text = companyName
+            textDescription.text = description
+            textPublishedDate.text = publishedDate
+            textCompanyEmail.text =companyEmail
+            textHowApply.text = howToApply
+            if(isRemote != null && isRemote as Boolean){
+                textRemote.visibility = View.VISIBLE
+            }else{
+                textRemote.visibility = View.GONE
+            }
+        }
+    }
+
+    override fun showProgressBar() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun hideProgressBar() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_job_detail)
 
-        jobDetailWebView.settings.loadsImagesAutomatically = true
+        val job = intent.extras.getParcelable<Job>("JobObject")
+        val presenter = JobDetailPresenter()
+        presenter.attach(this)
+        presenter.setJobDetail(job)
 
-        jobDetailWebView.settings.javaScriptEnabled = true
-
-        jobDetailWebView.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
-
-        jobDetailWebView.webViewClient = MyBrowser()
-
-        intent.extras.get("JOB_URL")?.toString().let {
-            jobDetailWebView.loadUrl(it)
-        }
-
-
-    }
-
-    private inner class MyBrowser : WebViewClient() {
-
-        @SuppressWarnings("deprecation")
-        override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-            view.loadUrl(url)
-            return true
-        }
-
-        @TargetApi(Build.VERSION_CODES.N)
-        override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
-            view.loadUrl(request.url.toString())
-            return true
-        }
     }
 
 }

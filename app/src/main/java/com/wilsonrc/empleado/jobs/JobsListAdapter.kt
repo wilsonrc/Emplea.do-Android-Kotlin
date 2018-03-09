@@ -62,7 +62,7 @@ class JobsListAdapter(private val jobList: MutableList<Job>) :
                 itemView.text_view_company_email.text = companyEmail
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, JobDetailActivity::class.java)
-                    intent.putExtra("JOB_URL", "http://emplea.do/")
+                    intent.putExtra("JobObject" , job)
                     itemView.context.startActivity(intent)
                 }
             }
