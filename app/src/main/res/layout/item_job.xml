@@ -18,11 +18,31 @@
         android:layout_height="235dp">
 
         <TextView
+            android:id="@+id/text_view_job_remote"
+            style="@style/Base.TextAppearance.AppCompat.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_alignEnd="@+id/text_view_job_likes"
+            android:layout_alignRight="@+id/text_view_job_likes"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/job_tag_custom_shape"
+            android:fontFamily="sans-serif-light"
+            android:padding="1dp"
+            android:paddingEnd="3dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:paddingStart="3dp"
+            android:visibility="gone"
+            android:text="@string/item_job_text_default_remote"
+            />
+
+        <TextView
             android:id="@+id/text_view_job_tag"
             android:layout_marginTop="16dp"
             android:layout_alignStart="@+id/text_view_job_title"
             android:layout_alignLeft="@+id/text_view_job_title"
-            android:text="Remote"
+            android:text="@string/item_job_text_default_category"
             android:padding="1dp"
             android:paddingEnd="3dp"
             android:paddingStart="3dp"
@@ -62,12 +82,13 @@
             android:maxLines="1"/>
 
         <ImageView
-            android:layout_alignLeft="@+id/text_view_job_title"
             android:id="@+id/ic_date"
             android:layout_alignBottom="@+id/text_view_job_publication_date"
             android:src="@drawable/ic_date_range_black_24dp"
             android:layout_width="16dp"
-            android:layout_height="16dp" />
+            android:layout_height="16dp"
+            android:layout_alignLeft="@+id/text_view_job_title"
+            android:layout_alignStart="@+id/text_view_job_title" />
 
         <TextView
             android:id="@+id/text_view_job_publication_date"
@@ -100,7 +121,7 @@
             android:layout_below="@+id/text_view_job_publication_date"
             android:textColor="@color/primaryText"
             android:fontFamily="sans-serif-light"
-            android:text="Santo Domingo, Republica Dominicana Dominican Republic"
+            android:text="@string/item_job_text_default_location"
             android:maxLines="1"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"

@@ -11,4 +11,7 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="filter_text">Filtrar</string>
+    <string name="item_job_text_default_category">General</string>
+    <string name="item_job_text_default_remote">Remote</string>
+    <string name="item_job_text_default_location">Ubicacion por determinar</string>
 </resources>

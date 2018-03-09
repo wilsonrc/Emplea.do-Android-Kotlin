@@ -2,6 +2,7 @@ package com.wilsonrc.empleado.jobs
 
 import android.content.Context
 import android.content.Intent
+import android.opengl.Visibility
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -39,7 +40,7 @@ class JobsListAdapter(private val jobList: MutableList<Job>) :
     }
 
     override fun getItemCount(): Int {
-        return jobList?.size
+        return jobList.size
     }
 
     class ViewHolder(view: View)
@@ -53,17 +54,20 @@ class JobsListAdapter(private val jobList: MutableList<Job>) :
                 itemView.text_view_company_name.text = companyName
 //                itemView.text_view_company_location.text = jobLocation
 //                itemView.text_view_job_tag.text = jobType
+                if(isRemote != null && isRemote as Boolean){
+                    itemView.text_view_job_remote.visibility = View.VISIBLE
+                }else{
+                    itemView.text_view_job_remote.visibility = View.GONE
+                }
                 itemView.text_view_visits.text = viewCount.toString()
                 itemView.text_view_job_title.text = title
                 itemView.text_view_job_publication_date.text = publishedDate
 
-                itemView.setOnClickListener(object : View.OnClickListener{
-                    override fun onClick(p0: View?) {
-                        val intent = Intent(itemView.context, JobDetailActivity::class.java)
-                        intent.putExtra("JOB_URL", "http://emplea.do/")
-                        itemView.context.startActivity(intent)
-                    }
-                })
+                itemView.setOnClickListener {
+                    val intent = Intent(itemView.context, JobDetailActivity::class.java)
+                    intent.putExtra("JOB_URL", "http://emplea.do/")
+                    itemView.context.startActivity(intent)
+                }
             }
         }
     }
