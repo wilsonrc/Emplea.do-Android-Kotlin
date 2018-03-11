@@ -77,7 +77,9 @@ class JobListFragment : Fragment() , JobsContract.View {
 
         rv_jobs.clearOnScrollListeners()
 
-        rv_jobs.addOnScrollListener(InfiniteScrollListener({ presenter.loadJobs(mPage.toString(), mSelectedCategory) },mLinealLayout))
+        val start = mPage * 10
+
+        rv_jobs.addOnScrollListener(InfiniteScrollListener({ presenter.loadJobs(start.toString(), mSelectedCategory) },mLinealLayout))
 
         mPage++
 
@@ -109,16 +111,16 @@ class JobListFragment : Fragment() , JobsContract.View {
     }
 
     override fun showNoJobs() {
-        main_container.visibility = View.GONE
-        no_jobs_container.visibility = View.VISIBLE
+        main_container?.visibility = View.GONE
+        no_jobs_container?.visibility = View.VISIBLE
     }
 
     override fun showProgressBar() {
-        progressBarJobListing.visibility = View.VISIBLE
+        progressBarJobListing?.visibility = View.VISIBLE
     }
 
     override fun hideProgressBar() {
-        progressBarJobListing.visibility = View.GONE
+        progressBarJobListing?.visibility = View.GONE
     }
 
 
