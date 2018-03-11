@@ -220,7 +220,7 @@
             android:layout_marginRight="24dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="8dp"
-            android:scaleType="centerCrop"
+            android:scaleType="centerInside"
             android:layout_width="70dp"
             android:layout_height="35dp" />
 

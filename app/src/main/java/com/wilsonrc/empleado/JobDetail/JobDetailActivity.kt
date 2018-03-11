@@ -10,6 +10,7 @@ import android.os.Build
 import android.annotation.TargetApi
 import android.view.View
 import android.webkit.WebViewClient
+import com.bumptech.glide.Glide
 import com.wilsonrc.empleado.data.source.models.Job
 import com.wilsonrc.empleado.utils.ActivityUtils
 
@@ -29,6 +30,7 @@ class JobDetailActivity : AppCompatActivity() , JobDetailContract.View {
             textPublishedDate.text = publishedDate
             textCompanyEmail.text =companyEmail
             textHowApply.text = howToApply
+            Glide.with(this@JobDetailActivity).load(companyLogoUrl).into(imageViewCompanyLogo)
             if(isRemote != null && isRemote as Boolean){
                 textRemote.visibility = View.VISIBLE
             }else{

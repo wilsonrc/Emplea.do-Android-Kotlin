@@ -46,7 +46,7 @@ class JobListFragment : Fragment() , JobsContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mAdapter = JobsListAdapter(ArrayList())
+        mAdapter = JobsListAdapter(ArrayList(), context)
 
         mLinealLayout = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
 
