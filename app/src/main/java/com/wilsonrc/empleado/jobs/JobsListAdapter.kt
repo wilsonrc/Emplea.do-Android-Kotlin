@@ -18,16 +18,16 @@ class JobsListAdapter(private val jobList: MutableList<Job>) :
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindJob( jobList[position])
+        holder.bindJob(jobList[position])
 
     }
 
-    fun reset(){
+    fun reset() {
         jobList.clear()
         notifyDataSetChanged()
     }
 
-    fun setJobs(jobs: List<Job>){
+    fun setJobs(jobs: List<Job>) {
         jobList.addAll(jobs)
         notifyDataSetChanged()
     }
@@ -46,23 +46,23 @@ class JobsListAdapter(private val jobList: MutableList<Job>) :
     class ViewHolder(view: View)
         : RecyclerView.ViewHolder(view) {
 
-        fun bindJob(job: Job){
-            with(job){
+        fun bindJob(job: Job) {
+            with(job) {
                 itemView.text_view_company_name.text = companyName
-//                itemView.text_view_company_location.text = jobLocation
-//                itemView.text_view_job_tag.text = jobType
-                if(isRemote != null && isRemote as Boolean){
+                itemView.text_view_company_location.text = locationName
+                itemView.text_view_job_tag.text = categoryName
+                if (isRemote != null && isRemote as Boolean) {
                     itemView.text_view_job_remote.visibility = View.VISIBLE
-                }else{
+                } else {
                     itemView.text_view_job_remote.visibility = View.GONE
                 }
-                itemView.text_view_visits.text =  java.lang.String.format(itemView.text_view_visits.text.toString(), viewCount.toString())
+                itemView.text_view_visits.text = java.lang.String.format(itemView.text_view_visits.text.toString(), viewCount.toString())
                 itemView.text_view_job_title.text = title
                 itemView.text_view_job_publication_date.text = publishedDate
                 itemView.text_view_company_email.text = companyEmail
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, JobDetailActivity::class.java)
-                    intent.putExtra("JobObject" , job)
+                    intent.putExtra("JobObject", job)
                     itemView.context.startActivity(intent)
                 }
             }

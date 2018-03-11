@@ -15,7 +15,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="235dp">
+        android:layout_height="245dp">
 
         <TextView
             android:id="@+id/text_view_job_remote"

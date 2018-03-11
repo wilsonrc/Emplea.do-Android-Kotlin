@@ -19,33 +19,42 @@ class Job() : Parcelable {
     @SerializedName("howToApply")
     @Expose
     var howToApply: String? = null
+    @SerializedName("companyName")
+    @Expose
+    var companyName: String? = null
+    @SerializedName("companyUrl")
+    @Expose
+    var companyUrl: String? = null
+    @SerializedName("companyEmail")
+    @Expose
+    var companyEmail: String? = null
+    @SerializedName("companyLogoUrl")
+    @Expose
+    var companyLogoUrl: String? = null
+    @SerializedName("locationName")
+    @Expose
+    var locationName: String? = null
+    @SerializedName("locationLongitude")
+    @Expose
+    var locationLongitude: String? = null
+    @SerializedName("locationLatitude")
+    @Expose
+    var locationLatitude: String? = null
     @SerializedName("categoryId")
     @Expose
     var categoryId: Int? = null
     @SerializedName("categoryName")
     @Expose
     var categoryName: String? = null
-    @SerializedName("companyName")
-    @Expose
-    var companyName: String? = null
-    @SerializedName("companyUrl")
-    @Expose
-    var companyUrl: Any? = null
-    @SerializedName("companyEmail")
-    @Expose
-    var companyEmail: String? = null
-    @SerializedName("companyLogoUrl")
-    @Expose
-    var companyLogoUrl: Any? = null
-    @SerializedName("viewCount")
-    @Expose
-    var viewCount: Int? = null
     @SerializedName("hireTypeId")
     @Expose
     var hireTypeId: Int? = null
     @SerializedName("hireTypeName")
     @Expose
     var hireTypeName: String? = null
+    @SerializedName("viewCount")
+    @Expose
+    var viewCount: Int? = null
     @SerializedName("isRemote")
     @Expose
     var isRemote: Boolean? = null
@@ -61,13 +70,18 @@ class Job() : Parcelable {
         title = parcel.readString()
         description = parcel.readString()
         howToApply = parcel.readString()
+        companyName = parcel.readString()
+        companyUrl = parcel.readString()
+        companyEmail = parcel.readString()
+        companyLogoUrl = parcel.readString()
+        locationName = parcel.readString()
+        locationLongitude = parcel.readString()
+        locationLatitude = parcel.readString()
         categoryId = parcel.readValue(Int::class.java.classLoader) as? Int
         categoryName = parcel.readString()
-        companyName = parcel.readString()
-        companyEmail = parcel.readString()
-        viewCount = parcel.readValue(Int::class.java.classLoader) as? Int
         hireTypeId = parcel.readValue(Int::class.java.classLoader) as? Int
         hireTypeName = parcel.readString()
+        viewCount = parcel.readValue(Int::class.java.classLoader) as? Int
         isRemote = parcel.readValue(Boolean::class.java.classLoader) as? Boolean
         publishedDateRaw = parcel.readString()
         publishedDate = parcel.readString()
@@ -78,13 +92,18 @@ class Job() : Parcelable {
         parcel.writeString(title)
         parcel.writeString(description)
         parcel.writeString(howToApply)
+        parcel.writeString(companyName)
+        parcel.writeString(companyUrl)
+        parcel.writeString(companyEmail)
+        parcel.writeString(companyLogoUrl)
+        parcel.writeString(locationName)
+        parcel.writeString(locationLongitude)
+        parcel.writeString(locationLatitude)
         parcel.writeValue(categoryId)
         parcel.writeString(categoryName)
-        parcel.writeString(companyName)
-        parcel.writeString(companyEmail)
-        parcel.writeValue(viewCount)
         parcel.writeValue(hireTypeId)
         parcel.writeString(hireTypeName)
+        parcel.writeValue(viewCount)
         parcel.writeValue(isRemote)
         parcel.writeString(publishedDateRaw)
         parcel.writeString(publishedDate)
@@ -103,6 +122,5 @@ class Job() : Parcelable {
             return arrayOfNulls(size)
         }
     }
-
 
 }
