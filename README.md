@@ -4,16 +4,17 @@ Android App that allows to find technology jobs in the Dominican Republic.
 
 ## ScreenShots
 
-## MainActivity
-<img src="https://raw.githubusercontent.com/wilsonrc/Emplea.do-Android-Kotlin/develop/screenshots/Home%20Screen.png" align="center" height="500px" width="282px"/>
+## Job List
+<img src="https://raw.githubusercontent.com/wilsonrc/Emplea.do-Android-Kotlin/develop/screenshots/Job%20List.png" align="center" height="500px" width="282px"/>
+
+## Job Detail
+<img src="https://raw.githubusercontent.com/wilsonrc/Emplea.do-Android-Kotlin/develop/screenshots/Job%20Detail.png" align="center" height="500px" width="282px"/>
 
 ### Actual features:
-+ Show List of Job offers.
-+ Search by Category.
-+ WebView Job Detail.
++ List of Job offers.
++ Job Detail.
 
 ### Future features:
-+ Integrate the app With a new Backend.
 + Dependency Injection.
 + JVM tests
 + UI tests using Espresso
