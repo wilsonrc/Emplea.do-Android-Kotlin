@@ -93,7 +93,7 @@ class JobDetailActivity : AppCompatActivity() , JobDetailContract.View {
         startActivity(Intent.createChooser(emailIntent, "Send your Application"))
     }
     private fun shareJobOffer(job: Job){
-        val shareBody = "${job.title}: \\n ${job.description} \\n\\n ${job.howToApply} \\n Company Info: *${job.companyName} \\n *${job.companyEmail} \\n ${job.companyUrl}"
+        val shareBody = "${job.title}: \n ${job.description} \n\n ${job.howToApply} \n Company Info: \n *${job.companyName} \n *${job.companyEmail} \n ${job.companyUrl}"
         val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
         sharingIntent.type = "text/plain"
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, job.title)
