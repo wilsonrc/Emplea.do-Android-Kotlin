@@ -31,10 +31,12 @@ class JobDetailActivity : AppCompatActivity() , JobDetailContract.View {
             textCategory.text = categoryName
             textCompanyName.text = companyName
             textCompanyNameAbout.text = companyName
+            textCompanyLocation.text = locationName
             textDescription.text = description
             textPublishedDate.text = publishedDate
             textCompanyEmail.text =companyEmail
             textHowApply.text = howToApply
+
             buttonApplyNow.setOnClickListener{
                 val emailIntent = Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                         "mailto", companyEmail, null))

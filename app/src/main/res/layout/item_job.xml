@@ -109,7 +109,7 @@
             android:layout_alignLeft="@+id/text_view_job_title"
             android:layout_alignStart="@+id/text_view_job_title"
             android:layout_alignTop="@+id/text_view_company_location"
-            android:src="@drawable/ic_location_city_black_24dp"
+            android:src="@drawable/ic_location_on_black_24dp"
             android:layout_width="16dp"
             android:layout_height="16dp" />
 
