@@ -162,7 +162,8 @@
             android:textColor="@android:color/white"
             android:textStyle="bold|italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textLabelKeywords" />
+            app:layout_constraintTop_toBottomOf="@+id/textLabelKeywords"
+            android:layout_marginLeft="16dp" />
 
         <TextView
             android:id="@+id/textHireType"
@@ -272,10 +273,10 @@
 
         <TextView
             android:id="@+id/textCompanyLocation"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="48dp"
             android:layout_marginTop="4dp"
             android:fontFamily="sans-serif"
             android:text="Company Location Name"
@@ -284,7 +285,9 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textCompanyName" />
+            app:layout_constraintTop_toBottomOf="@+id/textCompanyName"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="48dp" />
 
         <ImageView
             android:id="@+id/imageLocationIcon"
