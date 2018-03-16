@@ -1,4 +1,4 @@
-package com.wilsonrc.empleado.data.source.models
+package com.wilsonrc.empleado.data.models
 
 import android.os.Parcel
 import android.os.Parcelable

@@ -3,23 +3,14 @@ package com.wilsonrc.empleado.JobDetail
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.wilsonrc.empleado.R
-import android.view.View.SCROLLBARS_INSIDE_OVERLAY
-import android.webkit.WebView
-import android.webkit.WebResourceRequest
-import android.os.Build
-import android.annotation.TargetApi
 import android.content.Intent
 import android.net.Uri
 import android.view.View
-import android.webkit.WebViewClient
 import com.bumptech.glide.Glide
-import com.wilsonrc.empleado.data.source.models.Job
-import com.wilsonrc.empleado.utils.ActivityUtils
+import com.wilsonrc.empleado.data.models.Job
 
 import kotlinx.android.synthetic.main.activity_job_detail.*
-import android.net.Uri.fromParts
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 
 

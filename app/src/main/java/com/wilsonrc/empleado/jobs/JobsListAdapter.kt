@@ -2,7 +2,6 @@ package com.wilsonrc.empleado.jobs
 
 import android.content.Context
 import android.content.Intent
-import android.opengl.Visibility
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +9,8 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.wilsonrc.empleado.JobDetail.JobDetailActivity
 import com.wilsonrc.empleado.R
-import com.wilsonrc.empleado.data.source.models.Job
+import com.wilsonrc.empleado.data.models.Job
 import kotlinx.android.synthetic.main.item_job.view.*
-import kotlin.collections.ArrayList
 
 class JobsListAdapter(private val jobList: MutableList<Job>, private val context: Context?) :
         RecyclerView.Adapter<JobsListAdapter.ViewHolder>() {

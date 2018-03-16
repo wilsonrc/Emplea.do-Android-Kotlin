@@ -1,4 +1,4 @@
-package com.wilsonrc.empleado.data.source.models
+package com.wilsonrc.empleado.data.models
 
 /**
  * Created by Wilson Reyes on 3/9/2018.

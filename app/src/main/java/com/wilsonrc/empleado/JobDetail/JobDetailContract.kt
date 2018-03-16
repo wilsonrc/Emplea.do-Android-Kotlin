@@ -2,7 +2,7 @@ package com.wilsonrc.empleado.JobDetail
 
 import com.wilsonrc.empleado.BasePresenter
 import com.wilsonrc.empleado.BaseView
-import com.wilsonrc.empleado.data.source.models.Job
+import com.wilsonrc.empleado.data.models.Job
 
 /**
  * Created by Wilson Reyes on 3/9/2018.

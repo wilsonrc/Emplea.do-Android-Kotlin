@@ -1,7 +1,7 @@
 package com.wilsonrc.empleado.data.source.remote
 
 import com.wilsonrc.empleado.data.source.JobCategory.JobCategoryDataSource
-import com.wilsonrc.empleado.data.source.models.JobCategory
+import com.wilsonrc.empleado.data.models.JobCategory
 import io.reactivex.Single
 
 class JobCategoryRemoteDataSource(private val JobCategoryService: JobCategoryService) : JobCategoryDataSource {

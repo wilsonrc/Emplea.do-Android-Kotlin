@@ -14,8 +14,8 @@ import android.widget.LinearLayout
 import com.wilsonrc.empleado.R
 import com.wilsonrc.empleado.data.source.JobCategory.JobCategoryRepository
 import com.wilsonrc.empleado.data.source.jobs.JobsRepository
-import com.wilsonrc.empleado.data.source.models.Job
-import com.wilsonrc.empleado.data.source.models.JobCategory
+import com.wilsonrc.empleado.data.models.Job
+import com.wilsonrc.empleado.data.models.JobCategory
 import com.wilsonrc.empleado.data.source.remote.JobCategoryRemoteDataSource
 import com.wilsonrc.empleado.data.source.remote.JobCategoryService
 import com.wilsonrc.empleado.data.source.remote.JobsRemoteDataSource

@@ -1,7 +1,7 @@
 package com.wilsonrc.empleado.data.source.remote
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import com.wilsonrc.empleado.data.source.models.JobCategory
+import com.wilsonrc.empleado.data.models.JobCategory
 import com.wilsonrc.empleado.utils.LoggingInterceptor
 import io.reactivex.Single
 import okhttp3.OkHttpClient

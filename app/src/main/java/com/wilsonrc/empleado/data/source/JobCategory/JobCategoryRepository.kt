@@ -1,6 +1,6 @@
 package com.wilsonrc.empleado.data.source.JobCategory
 
-import com.wilsonrc.empleado.data.source.models.JobCategory
+import com.wilsonrc.empleado.data.models.JobCategory
 import com.wilsonrc.empleado.data.source.remote.JobCategoryRemoteDataSource
 import io.reactivex.Single
 

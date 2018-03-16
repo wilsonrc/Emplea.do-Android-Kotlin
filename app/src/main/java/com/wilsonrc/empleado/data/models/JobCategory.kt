@@ -1,4 +1,4 @@
-package com.wilsonrc.empleado.data.source.models
+package com.wilsonrc.empleado.data.models
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

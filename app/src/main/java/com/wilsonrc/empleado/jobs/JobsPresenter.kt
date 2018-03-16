@@ -2,7 +2,6 @@ package com.wilsonrc.empleado.jobs
 
 import com.wilsonrc.empleado.data.source.JobCategory.JobCategoryRepository
 import com.wilsonrc.empleado.data.source.jobs.JobsRepository
-import com.wilsonrc.empleado.data.source.models.JobCategory
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers

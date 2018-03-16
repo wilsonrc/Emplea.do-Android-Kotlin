@@ -2,8 +2,8 @@ package com.wilsonrc.empleado.jobs
 
 import com.wilsonrc.empleado.BasePresenter
 import com.wilsonrc.empleado.BaseView
-import com.wilsonrc.empleado.data.source.models.Job
-import com.wilsonrc.empleado.data.source.models.JobCategory
+import com.wilsonrc.empleado.data.models.Job
+import com.wilsonrc.empleado.data.models.JobCategory
 
 interface JobsContract {
 
