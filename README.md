@@ -13,8 +13,11 @@ Android App that allows to find technology jobs in the Dominican Republic.
 ### Actual features:
 + List of Job offers.
 + Job Detail.
++ Share Job Offer.
 
 ### Future features:
++ Job Filter.
++ Save Job Offers.
 + Dependency Injection.
 + JVM tests
 + UI tests using Espresso
