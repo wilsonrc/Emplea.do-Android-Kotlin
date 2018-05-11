@@ -32,8 +32,8 @@ class JobsListAdapter(private val jobList: MutableList<Job>, private val context
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-        return LayoutInflater.from(parent?.context).inflate(R.layout.item_job, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return LayoutInflater.from(parent.context).inflate(R.layout.item_job, parent, false)
                 .let {
                     ViewHolder(it)
                 }

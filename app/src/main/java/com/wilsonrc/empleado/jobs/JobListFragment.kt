@@ -18,14 +18,19 @@ import com.wilsonrc.empleado.data.models.Job
 import com.wilsonrc.empleado.data.models.JobCategory
 import com.wilsonrc.empleado.data.source.remote.JobCategoryRemoteDataSource
 import com.wilsonrc.empleado.data.source.remote.JobCategoryService
-import com.wilsonrc.empleado.data.source.remote.JobsRemoteDataSource
-import com.wilsonrc.empleado.data.source.remote.JobsService
+import com.wilsonrc.empleado.di.ActivityScope
 import com.wilsonrc.empleado.utils.InfiniteScrollListener
+import dagger.android.AndroidInjection
+
+import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_job_list.*
+import javax.inject.Inject
 
-class JobListFragment : Fragment() , JobsContract.View {
+@ActivityScope
+class JobListFragment @Inject constructor(): DaggerFragment() , JobsContract.View {
 
-
+    @Inject
     lateinit var presenter: JobsContract.Presenter
 
     private var mAdapter : JobsListAdapter? = null
@@ -35,8 +40,6 @@ class JobListFragment : Fragment() , JobsContract.View {
     private var mSelectedCategory : String = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        presenter = JobsPresenter(jobsRepository =  JobsRepository(JobsRemoteDataSource(JobsService.create())),
-                jobCategoryRepository = JobCategoryRepository(JobCategoryRemoteDataSource(JobCategoryService.create())))
         presenter.attach(this)
        return inflater.inflate(R.layout.fragment_job_list, container, false)
     }

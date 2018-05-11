@@ -13,11 +13,11 @@ import com.wilsonrc.empleado.data.source.remote.JobCategoryService
 import com.wilsonrc.empleado.data.source.remote.JobsRemoteDataSource
 import com.wilsonrc.empleado.data.source.remote.JobsService
 import com.wilsonrc.empleado.utils.ActivityUtils
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.fragment_job_list.*
 
-class JobsActivity : AppCompatActivity(){
+class JobsActivity : DaggerAppCompatActivity(){
 
-    private var mPresenter : JobsPresenter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

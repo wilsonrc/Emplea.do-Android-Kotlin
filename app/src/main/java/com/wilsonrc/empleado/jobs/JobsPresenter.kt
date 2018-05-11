@@ -2,12 +2,14 @@ package com.wilsonrc.empleado.jobs
 
 import com.wilsonrc.empleado.data.source.JobCategory.JobCategoryRepository
 import com.wilsonrc.empleado.data.source.jobs.JobsRepository
+import com.wilsonrc.empleado.di.ActivityScope
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-
-class JobsPresenter(private val jobsRepository: JobsRepository, private val jobCategoryRepository: JobCategoryRepository) : JobsContract.Presenter {
+@ActivityScope
+class JobsPresenter @Inject constructor(var jobsRepository: JobsRepository,var jobCategoryRepository: JobCategoryRepository) : JobsContract.Presenter {
 
     private lateinit var mJobsView: JobsContract.View
 

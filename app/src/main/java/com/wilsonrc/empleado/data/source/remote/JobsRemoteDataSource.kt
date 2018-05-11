@@ -5,9 +5,10 @@ import com.wilsonrc.empleado.data.models.Job
 import com.wilsonrc.empleado.data.models.JobsRequest
 import io.reactivex.Observable
 import io.reactivex.Single
+import javax.inject.Inject
 
 
-class JobsRemoteDataSource(private val jobsService: JobsService) : JobsDataSource {
+class JobsRemoteDataSource @Inject constructor(val jobsService: JobsService) : JobsDataSource  {
 
     override fun getFavJobs() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -16,7 +17,7 @@ class JobsRemoteDataSource(private val jobsService: JobsService) : JobsDataSourc
 
     override fun getJobs(page: String, pageSize: String, category: String): Observable<JobsRequest> {
 
-        var parameters:MutableMap<String, String> = mutableMapOf()
+        val parameters:MutableMap<String, String> = mutableMapOf()
 
         parameters.put("start",page)
 
