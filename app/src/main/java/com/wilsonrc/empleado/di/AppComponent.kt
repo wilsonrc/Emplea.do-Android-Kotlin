@@ -2,6 +2,7 @@ package com.wilsonrc.empleado.di
 
 import android.app.Application
 import com.wilsonrc.empleado.BaseApp
+import com.wilsonrc.empleado.JobDetail.JobDetailActivityModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector

@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.wilsonrc.empleado.R
 import android.content.Intent
 import android.net.Uri
+import android.os.PersistableBundle
 import android.view.View
 import com.bumptech.glide.Glide
 import com.wilsonrc.empleado.data.models.Job
@@ -12,9 +13,18 @@ import com.wilsonrc.empleado.data.models.Job
 import kotlinx.android.synthetic.main.activity_job_detail.*
 import android.view.Menu
 import android.view.MenuItem
+import com.wilsonrc.empleado.di.ActivityScope
+import dagger.android.AndroidInjection
+import dagger.android.DaggerActivity
+import dagger.android.DaggerApplication
+import dagger.android.support.DaggerAppCompatActivity
+import javax.inject.Inject
 
 
-class JobDetailActivity : AppCompatActivity() , JobDetailContract.View {
+class JobDetailActivity @Inject constructor(): DaggerAppCompatActivity() , JobDetailContract.View {
+
+    @Inject
+    lateinit var presenter: JobDetailContract.Presenter
 
     lateinit var job : Job
 
@@ -47,7 +57,6 @@ class JobDetailActivity : AppCompatActivity() , JobDetailContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_job_detail)
         job = intent.extras.getParcelable<Job>("JobObject")
-        val presenter = JobDetailPresenter()
         presenter.attach(this)
         presenter.setJobDetail(job)
     }

@@ -1,11 +1,14 @@
 package com.wilsonrc.empleado.JobDetail
 
 import com.wilsonrc.empleado.data.models.Job
+import com.wilsonrc.empleado.di.ActivityScope
+import javax.inject.Inject
 
 /**
  * Created by Wilson Reyes on 3/9/2018.
  */
-class JobDetailPresenter : JobDetailContract.Presenter {
+@ActivityScope
+class JobDetailPresenter @Inject constructor(): JobDetailContract.Presenter {
 
 
     private lateinit var mJobDetailView: JobDetailContract.View

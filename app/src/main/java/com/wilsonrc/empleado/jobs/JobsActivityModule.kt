@@ -24,4 +24,5 @@ abstract class JobsActivityModule {
     @ActivityScope
     abstract internal fun provideJobsPresenter(jobsPresenter: JobsPresenter) : JobsContract.Presenter
 
+
 }
