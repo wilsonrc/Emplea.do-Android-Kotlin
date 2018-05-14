@@ -18,7 +18,6 @@ Android App that allows to find technology jobs in the Dominican Republic.
 ### Future features:
 + Job Filter.
 + Save Job Offers.
-+ Dependency Injection.
 + JVM tests
 + UI tests using Espresso
    
@@ -27,3 +26,4 @@ Android App that allows to find technology jobs in the Dominican Republic.
 + Package by feature
 + Kotlin
 + Rxjava
++ Dependency Injection (Dagger 2)
