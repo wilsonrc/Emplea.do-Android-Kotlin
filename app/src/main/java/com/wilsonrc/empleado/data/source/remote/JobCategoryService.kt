@@ -11,26 +11,6 @@ import retrofit2.http.GET
 
 interface JobCategoryService {
 
-    companion object {
-
-        fun create() : JobCategoryService {
-
-            val client = OkHttpClient.Builder().addInterceptor(LoggingInterceptor()).build()
-
-            val BASE_URL = "https://api.myjson.com/bins/"
-
-            val retrofit = Retrofit.Builder()
-                    .client(client)
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl(BASE_URL)
-                    .build()
-
-            return retrofit.create(JobCategoryService::class.java)
-
-        }
-    }
-
     @GET("t5y4j")
     fun getJobCategories() : Single<ArrayList<JobCategory>>
 

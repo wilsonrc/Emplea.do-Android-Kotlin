@@ -5,8 +5,9 @@ import com.wilsonrc.empleado.data.models.JobsRequest
 import com.wilsonrc.empleado.data.source.remote.JobsRemoteDataSource
 import io.reactivex.Observable
 import io.reactivex.Single
+import javax.inject.Inject
 
-class JobsRepository(private val jobsRemoteDataSource: JobsRemoteDataSource) : JobsDataSource {
+class JobsRepository @Inject constructor(private val jobsRemoteDataSource: JobsRemoteDataSource) : JobsDataSource {
 
 
     override fun getJobs(page: String, pageSize: String, category: String): Observable<JobsRequest> {
