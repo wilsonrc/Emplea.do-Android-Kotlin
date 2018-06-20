@@ -67,7 +67,11 @@ class JobDetailActivity @Inject constructor(): DaggerAppCompatActivity() , JobDe
             textCategory.text = categoryName
             textCompanyName.text = companyName
             textCompanyNameAbout.text = companyName
-            textCompanyLocation.text = locationName
+            if(locationName.isNullOrBlank()){
+                textCompanyLocation.visibility = View.GONE
+            }else{
+                textCompanyLocation.text = locationName
+            }
             textDescription.text = description
             textPublishedDate.text = publishedDate
             textCompanyEmail.text =companyEmail
@@ -77,7 +81,11 @@ class JobDetailActivity @Inject constructor(): DaggerAppCompatActivity() , JobDe
                 applyNow(job)
             }
 
-            Glide.with(this@JobDetailActivity).load(companyLogoUrl).into(imageViewCompanyLogo)
+            if(companyLogoUrl.isNullOrBlank()){
+                imageViewCompanyLogo.visibility = View.GONE
+            }else{
+                Glide.with(this@JobDetailActivity).load(companyLogoUrl).into(imageViewCompanyLogo)
+            }
             if(isRemote != null && isRemote as Boolean){
                 textRemote.visibility = View.VISIBLE
             }else{
