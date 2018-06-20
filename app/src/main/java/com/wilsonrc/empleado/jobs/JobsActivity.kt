@@ -30,23 +30,4 @@ class JobsActivity : DaggerAppCompatActivity(){
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val id = item?.itemId
-        when(id){
-            R.id.filter -> {
-                if(spinnerJobCategory.visibility == View.VISIBLE)
-                {
-                    spinnerJobCategory.visibility = View.GONE
-                }else{
-                    spinnerJobCategory.visibility = View.VISIBLE
-                }
-            }
-        }
-        return true
-    }
 }

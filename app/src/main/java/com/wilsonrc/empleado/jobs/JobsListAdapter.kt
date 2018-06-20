@@ -49,7 +49,12 @@ class JobsListAdapter(private val jobList: MutableList<Job>, private val context
         fun bindJob(job: Job, context : Context?) {
             with(job) {
                 itemView.text_view_company_name.text = companyName
-                itemView.text_view_company_location.text = locationName
+                if(locationName.isNullOrBlank()){
+                    itemView.text_view_company_location.visibility = View.GONE
+                    itemView.ic_location.visibility = View.GONE
+                }else{
+                    itemView.text_view_company_location.text = locationName
+                }
                 itemView.text_view_job_tag.text = categoryName
                 if (isRemote != null && isRemote as Boolean) {
                     itemView.text_view_job_remote.visibility = View.VISIBLE
