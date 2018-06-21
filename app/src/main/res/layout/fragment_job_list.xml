@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.wilsonrc.empleado.jobs.JobListFragment">
+
+    <ProgressBar
+        android:id="@+id/progressBarJobListing"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:layout_marginBottom="4dp"
+        android:layout_height="50dp" />
 
     <LinearLayout
         android:id="@+id/main_container"
@@ -12,14 +21,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ProgressBar
-            android:id="@+id/progressBarJobListing"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:indeterminate="true"
-            android:layout_marginBottom="4dp"
-            android:layout_height="15dp" />
+
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_jobs"
@@ -34,4 +36,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-</LinearLayout>
+</FrameLayout>

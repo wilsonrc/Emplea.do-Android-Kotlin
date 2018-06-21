@@ -10,8 +10,7 @@
     android:layout_marginRight="5dp"
     card_view:cardUseCompatPadding="true"
     android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    >
+    android:foreground="?android:attr/selectableItemBackground">
 
     <RelativeLayout
         android:layout_width="match_parent"
