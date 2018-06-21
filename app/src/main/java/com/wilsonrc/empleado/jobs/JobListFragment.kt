@@ -57,9 +57,14 @@ class JobListFragment @Inject constructor(): DaggerFragment() , JobsContract.Vie
 
         rv_jobs.adapter = mAdapter
 
+        swipeContainer.setOnRefreshListener{
+            presenter.loadJobs(mPage.toString(),mSelectedCategory)
+        }
+
         presenter.loadJobs(mPage.toString(),mSelectedCategory)
 
-        presenter.loadJobCategories()
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_blue_dark)
 
     }
 
@@ -72,11 +77,13 @@ class JobListFragment @Inject constructor(): DaggerFragment() , JobsContract.Vie
         main_container.visibility = View.VISIBLE
         no_jobs_container.visibility = View.GONE
 
-       hideProgressBar()
+        hideProgressBar()
+
+        mAdapter?.reset()
 
         mAdapter?.setJobs(jobs)
 
-        mAdapter?.notifyDataSetChanged()
+        swipeContainer.isRefreshing = false
 
         rv_jobs.clearOnScrollListeners()
 
