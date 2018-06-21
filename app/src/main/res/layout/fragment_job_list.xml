@@ -12,16 +12,6 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <Spinner
-            android:layout_margin="4dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:id="@+id/spinnerJobCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:visibility="gone"
-            />
         <ProgressBar
             android:id="@+id/progressBarJobListing"
             style="?android:attr/progressBarStyleHorizontal"

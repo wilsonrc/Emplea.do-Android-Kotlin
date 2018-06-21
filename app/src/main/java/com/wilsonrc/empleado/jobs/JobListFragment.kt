@@ -89,28 +89,7 @@ class JobListFragment @Inject constructor(): DaggerFragment() , JobsContract.Vie
     }
 
     override fun showJobCategories(categories: List<JobCategory>) {
-        val adapter = ArrayAdapter(context,android.R.layout.simple_spinner_item, categories)
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-        spinnerJobCategory.adapter = adapter
-
-        spinnerJobCategory.onItemSelectedListener = (object: AdapterView.OnItemSelectedListener {
-
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                val item = spinnerJobCategory.selectedItem as JobCategory
-                if(mSelectedCategory != item.name){
-                        mSelectedCategory = item.id.toString()
-                        mAdapter?.reset()
-                        mPage = 1
-                        presenter.loadJobs(mPage.toString(), mSelectedCategory)
-                }
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-
-            }
-        })
     }
 
     override fun showNoJobs() {
