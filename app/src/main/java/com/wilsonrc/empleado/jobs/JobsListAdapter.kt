@@ -53,6 +53,8 @@ class JobsListAdapter(private val jobList: MutableList<Job>, private val context
                     itemView.text_view_company_location.visibility = View.GONE
                     itemView.ic_location.visibility = View.GONE
                 }else{
+                    itemView.text_view_company_location.visibility = View.VISIBLE
+                    itemView.ic_location.visibility = View.VISIBLE
                     itemView.text_view_company_location.text = locationName
                 }
                 itemView.text_view_job_tag.text = categoryName
