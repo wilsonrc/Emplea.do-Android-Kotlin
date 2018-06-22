@@ -35,6 +35,8 @@ class JobListFragment @Inject constructor(): DaggerFragment() , JobsContract.Vie
 
     private var mAdapter : JobsListAdapter? = null
 
+    private val INITIAL_PAGE = "0"
+
     private var mPage : Int = 1
 
     private var mSelectedCategory : String = ""
@@ -58,14 +60,19 @@ class JobListFragment @Inject constructor(): DaggerFragment() , JobsContract.Vie
         rv_jobs.adapter = mAdapter
 
         swipeContainer.setOnRefreshListener{
-            presenter.loadJobs(mPage.toString(),mSelectedCategory)
+            mAdapter?.reset()
+            presenter.loadJobs(INITIAL_PAGE, mSelectedCategory)
         }
 
-        presenter.loadJobs(mPage.toString(),mSelectedCategory)
+        presenter.loadJobs(getCurrentPage(), mSelectedCategory)
 
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_blue_dark)
 
+    }
+
+    private fun getCurrentPage() : String{
+        return mPage.toString()
     }
 
     companion object {
@@ -78,8 +85,6 @@ class JobListFragment @Inject constructor(): DaggerFragment() , JobsContract.Vie
         no_jobs_container.visibility = View.GONE
 
         hideProgressBar()
-
-        mAdapter?.reset()
 
         mAdapter?.setJobs(jobs)
 
